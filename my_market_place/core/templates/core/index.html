@@ -6,5 +6,44 @@
 {% block content %}
 <div class="mt-6 ox-6 py-12 bg-gray-200 rounded-xl">
     <h2 class="mb-12 text-2xl text-center"> Newest Items </h2>
+    {% comment %} <div class="grid grid-cols-3 gap-3">
+        {% for product in products %}
+            <div>
+                <a href="">
+                    <img src="{{ product.image.url }}" class="rounded-t-xl">
+                </a>
+            </div>
+            <div class="p-6 bg-white rounded-b-xl">
+                <h2 class="text-2xl">{{ product.name }}</h2>
+                <p class="text-gray-500">Price: {{ product.price}} </p>
+            </div>
+        {% endfor %}
+    </div> {% endcomment %}
+
+    
 </div>  
+
+<div class="bg-gray-100 py-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center my-8">Newest products</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {% for product in products %}
+            <!-- Product Card Start -->
+            <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300">
+                <img class="w-full h-48 object-cover" src="{{ product.image }}" alt="Product Image">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-800">{{ product.name }}</h3>
+                    <p class="text-gray-600 text-sm mt-1"> {{ product.description }} </p>
+                    <div class="mt-4 flex justify-between items-center">
+                    <span class="text-xl font-bold text-blue-500">{{ product.price }} BDT </span>
+                    <button class="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600 transition-colors duration-300">Add to Cart</button>
+                  </div>
+                </div>
+            </div>  
+            <!-- Product Card End -->
+        {% endfor %}
+      </div>
+    </div>
+</div>
+  
 {% endblock  %}

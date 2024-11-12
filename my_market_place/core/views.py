@@ -10,7 +10,7 @@ def index(request):
         'categories': categories,
         'products': top_products, 
     }
-    return render(request, 'core/index.html', context=context)
+    return render(request, 'core/index.html', context)
 
 def contact(request):
     return render(request, 'core/contact.html')
